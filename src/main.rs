@@ -1,17 +1,9 @@
 fn main() {
-    let arr = [3; 5];
-    for item in arr {
-        println!("item is {}", item)
-    }
-    println!("{}", arr.len());
-    let arr = arr.into_iter().enumerate();
-    for (item, index) in arr {
-        println!("item is {},index is {}", item, index)
-    }
-    for item in 1..=4 {
-        println!("item1=4  is {}", item)
-    }
-    for item in 1..4 {
-        println!("item1..4 is {}", item)
-    }
+    let m1 = "11".to_string();
+    let m2 = "22".to_string();
+    println!("m1: {}", m1);
+    println!(" m1 的地址: {}", &m1);
+    let s = format!("{},{}", m1, m2);
 }
+fn greet() {}
+// https://www.bilibili.com/video/BV1bVS4YXEE5?spm_id_from=333.788.videopod.sections&vd_source=cdf0a2c729dffbe88fe326838d204382
