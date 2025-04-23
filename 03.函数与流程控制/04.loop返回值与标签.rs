@@ -1,5 +1,7 @@
 fn main() {
     let mut num = 0;
+    // 通过break获取loop的返回值
+    // 通过标签 ['aaaa]为外层loop命名,使用break终止'aaaa 这个loop
     let info = 'aaaa: loop {
         println!("num is {num}");
         if num >= 5 {
