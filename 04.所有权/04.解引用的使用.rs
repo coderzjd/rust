@@ -23,5 +23,18 @@ fn main() {
     let aa = Box::new(0);
     let bb = Box::new(&aa);
     let cc = ***bb;
+    println!("bb is {}", bb);
+
+    // 对基础类型的值，解引用的时候调用`Copy` trait拿到值
+    let name = vec![111];
+    let aa = &name[0];
+    let bb = *aa;
+    println!("bb is {}", bb);
+
+    let name = vec![String::from("2333")];
+    let aa = &name[0];
+    // 对heap类型的值，解引用的时候没有`Copy` trait会报错
+    // let bb = *aa;
+    let bb = &name[0].clone();
     println!("bb is {}", bb)
 }

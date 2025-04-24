@@ -1,3 +1,4 @@
+// 借用不该变所有权
 // 借用包含：可变引用，不可变引用
 fn main() {
     let str = String::from("hellow");

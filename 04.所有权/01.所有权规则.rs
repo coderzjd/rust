@@ -54,4 +54,21 @@ fn main() {
     let arr_2 = arr_1;
     // 2、如果存储的是非基础数据类型(没有实现copy trait)会存在所有权转移问题
     // println!("{:?}", arr_1);
+
+    // 数据必须在其所有引用销毁之前存活
+    let v1 = vec![1, 2, 3];
+    // drop函数会回收内存，后续无法使用
+    drop(v1);
+    println!("{}", v1[0]);
+}
+
+fn bar() -> &String {
+    // 局部变量info在bar函数运行结束后被回收，不能返回引用
+    let info = String::from("2333");
+    &info
+}
+// 直接返回变量可以
+fn foo() -> String {
+    let info = String::from("2333");
+    info
 }
