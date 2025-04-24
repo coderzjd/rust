@@ -1,3 +1,4 @@
+// 借用包含：可变引用，不可变引用
 fn main() {
     let str = String::from("hellow");
     // foo(str);
@@ -12,7 +13,7 @@ fn main() {
 
     let mut str1 = String::from("2333");
     // gkd函数使用借用，借用中的可变引用
-    // 在gkd函数传参之后不影响str的所有权,并且修改了str1的值
+    // 在gkd函数传参之后不影响str1的所有权,并且修改了str1的值
     gkd(&mut str1);
     println!("str1 is {}", str1)
 }
