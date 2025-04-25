@@ -1,14 +1,18 @@
+#[derive(Debug)]
+struct Point(i32, String);
+// 使用impl为结构体实现方法
+impl Point {
+    fn incr_x(&mut self) {
+        self.0 += 1
+    }
+    fn push_y(&mut self) {
+        self.1.push_str("998");
+    }
+}
 fn main() {
-    let s1 = String::from("998");
-    // s1存储变量
-    println!("s1 占用空间大小: {}", std::mem::size_of_val(&s1));
-    // s2存储s1的指针地址
-    let s2 = &s1;
-    println!("s2 占用空间大小: {}", std::mem::size_of_val(&s2));
-    // s3存了s1的指针地址+切片长度
-    let s3 = &s1[..];
-    println!("s3 占用空间大小: {}", std::mem::size_of_val(&s3));
-    // s1 占用空间大小: 24
-    // s2 占用空间大小: 8
-    // s3 占用空间大小: 16
+    let mut p = Point(1, String::from("233"));
+    p.incr_x();
+    println!("{}", p.0);
+    p.push_y();
+    println!("{}", p.1)
 }
