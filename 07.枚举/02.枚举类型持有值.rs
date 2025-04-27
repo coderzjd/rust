@@ -5,6 +5,7 @@ fn main() {
     }
     let four: IpAddrKind = IpAddrKind::V4(127, 0, 0, 1);
     let six: IpAddrKind = IpAddrKind::V6(String::from("::1"));
+    // 不知道为什么？
     let five: fn(u8, u8, u8, u8) -> IpAddrKind = IpAddrKind::V4;
     let all: IpAddrKind = five(1, 2, 3, 4);
 }
