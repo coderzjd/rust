@@ -3,13 +3,6 @@ fn main() {
         x: T,
         y: K,
     }
-    impl<T, K> Point<T, K> {
-        fn x(&self) -> &T {
-            &self.x
-        }
-    }
     let p1 = Point { x: 1, y: 1 };
     let p2 = Point { x: "1", y: "2" };
-    let x = p1.x();
-    println!("p1 x is {x}")
 }

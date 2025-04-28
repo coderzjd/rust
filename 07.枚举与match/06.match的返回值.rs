@@ -8,4 +8,10 @@ fn main() {
         None => 0,
     };
     let d = a + c;
+
+    // 使用match获取返回值的时候，各个分支的返回值类型要一致
+    let f = match b {
+        Some(x) => x,
+        None => "11",
+    };
 }
