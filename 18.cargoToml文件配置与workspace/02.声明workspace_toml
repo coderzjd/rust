@@ -1,0 +1,3 @@
+1、在workspace根目录使用cargo run -p add_two 运行workspace的子crate
+2、在 add_two 目录内使用 cargo add add_one  --path "../add_one" 在workspace内添加依赖
+3、在workspace根目录运行 cargo test -p add_one 只运行指定crate 的测试

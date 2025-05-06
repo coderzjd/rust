@@ -1,0 +1,16 @@
+[package]
+name = "test01"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+// 默认为dev
+// 指定开发构建选项
+rand = "0.9.1"
+[profile.dev]
+
+// 指定生产构建选项
+opt-level = 0
+[profile.release]
+opt-level = 3
