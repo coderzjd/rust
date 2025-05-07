@@ -1,35 +1,8 @@
-use std::{
-    cell::RefCell,
-    rc::{Rc, Weak},
-};
-
 fn main() {
-    // 防止引用循环： 使用Weak<T>代替Rc<T>
-    // 1、Rc::clone()会创建强引用，只有强引用数量为0,Rc<T>指向的值才会被清理
-    // 2、通过Rc::downgrade创建弱引用，不代表所有权、不影响垃圾回收，不会导致循环引用
-    // 3、Weak<T>不能直接使用值，通过upgrade方法检查弱引用值是否存在
-    // 存在：返回Some(Rc<T>)
-    // 不存在返回None
-    #[derive(Debug)]
-    struct Node {
-        value: i32,
-        childern: RefCell<Vec<Rc<Node>>>,
-        parent: RefCell<Weak<Node>>,
-    }
-    // 创建叶子节点
-    let leaf = Rc::new(Node {
-        value: 1,
-        parent: RefCell::new(Weak::new()),
-        childern: RefCell::new(vec![]),
-    });
-    println!("获取根节点 {:?}", leaf.parent.borrow().upgrade());
-    // 创建树枝节点，将叶子节点作为子节点
-    let branch = Rc::new(Node {
-        value: 5,
-        parent: RefCell::new(Weak::new()),
-        childern: RefCell::new(vec![Rc::clone(&leaf)]),
-    });
-    *leaf.parent.borrow_mut() = Rc::downgrade(&branch);
-    println!("弱引用数量： {}", Rc::weak_count(&branch));
-    println!("获取根节点 {:?}", leaf.parent.borrow().upgrade())
+    // Sync and Send Traits
+    // Send marker 特征指示实施 Send 类型的值的所有权可以在线程之间转移。几乎所有 Rust 类型都是 Send
+    // 完全由 Send 类型组成的任何类型也会自动标记为 Send。
+
+    // Sync marker trait 表示它对于实现 sync 以从多个线程引用。换句话说，任何类型 T 都是 Sync if &T （对 T 的不可变引用） 为 Send，
+    // 这意味着该引用可以安全地发送到另一个线程。与 Send 类似，原始类型是 Sync 和完全由 Sync 类型组成的类型也是 Sync。
 }
