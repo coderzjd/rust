@@ -19,4 +19,11 @@ fn main() {
     } else {
         println!("none")
     }
+    
+    // if let表达式匹配多个
+    let tuple_info = (Some(1), Some(2));
+    if let (Some(x), Some(y)) = tuple_info {
+        println!("x is {x}");
+        println!("y is {y}");
+    }
 }
