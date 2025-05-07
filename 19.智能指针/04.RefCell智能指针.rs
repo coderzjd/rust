@@ -23,10 +23,11 @@ fn main() {
             }
         }
         fn increment(&self) {
-            // 获取可变引用，这里会进行运行时的借用检查
+            // 获取可变引用，这里会进行运行时的借用检查，编译时不检查
             let mut num = self.count.borrow_mut();
             // 运行时违反借用规则还是会报错、触发panic
             // let mut num2 = self.count.borrow_mut();
+            // *num2 += 1;
             *num += 1;
         }
         fn get_count(&self) -> i32 {
