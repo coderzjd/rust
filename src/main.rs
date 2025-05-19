@@ -13,4 +13,14 @@ fn main() {
     //          2、宏在编译器解释代码意义之前就会被展开
     //      3、定义一个宏比定义函数复杂
     //      4、宏必须在使用前定义好或者导入作用域
+    trpl::run(async {
+        let body = reqwest::get("https://www.rust-lang.org")
+            .await
+            .unwrap()
+            .text()
+            .await
+            .unwrap();
+
+        println!("body = {body:?}");
+    })
 }
